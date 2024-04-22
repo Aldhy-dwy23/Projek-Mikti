@@ -8,7 +8,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Pertemuan 20',
+      title: 'ngga tauu',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -42,33 +43,55 @@ class MyHomePage extends StatelessWidget {
             ),
             ListTile(
               title: Text('Menu 1'),
-              onTap: () {
-                // Add navigation functionality here
-                Navigator.pop(context); // Close the drawer
-              },
             ),
             ListTile(
               title: Text('Menu 2'),
-              onTap: () {
-                // Add navigation functionality here
-                Navigator.pop(context); // Close the drawer
-              },
+
             ),
             ListTile(
               title: Text('Menu 3'),
-              onTap: () {
-                // Add navigation functionality here
-                Navigator.pop(context); // Close the drawer
-              },
             ),
           ],
         ),
       ),
-      body: Center(
-        child: Text(
-          'Depan',
-          style: TextStyle(fontSize: 24),
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Center(
+              child: Text(
+                'Lalalala',
+                style: TextStyle(fontSize: 24),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(16),
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () {
+                // Show AlertDialog
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text('Perhatian'),
+                      content: Text('Sudah makann ?'),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('Close'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              child: Text('teken'),
+            ),
+          ),
+        ],
       ),
     );
   }
